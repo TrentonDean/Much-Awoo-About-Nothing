@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose")                        // Done by Trenton
 
 const PostSchema = mongoose.Schema(
     {
@@ -14,14 +14,8 @@ const PostSchema = mongoose.Schema(
         },
         tags: {                                             // subject to change if group doesn't like the way it's set up
             type: String,
-            required: [true, "Your post must have a tag"],
-            enum: [
-                'Tips and Tricks',
-                'Wholesome',
-                'Training',
-                'Dog Health',
-                'Dog Products'
-            ]
+            required: [true, "Your post must have at least one (1) tag"],
+            minLength: [2, "Post tags must be at least two (2) characters"]
         }
     }, {timestamps: true});
 
