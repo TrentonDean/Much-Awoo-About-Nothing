@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
+const bcrypt = require("bcrypt")
 
 const UserSchema = mongoose.Schema(
     {
@@ -15,7 +16,37 @@ const UserSchema = mongoose.Schema(
         email: {
             type:String,
             required: [true, "You must enter an email address."],
-            
+            minLength: [8, "Email address must be at least eight (8) characters long."]
+        },
+        password: {
+            type:String,
+            required: [true, "You must enter an email address."],
+            minLength: [5, "Passwords must be at least five (5) characters long."]
+        },
+        dogName:{
+            type:String,
         }
+
+    }, {timestamps: true});
+
+UserSchema.pre("save", async function(next){
+    try{
+        const hashedPassword = await bcrypt.hash(this.password, 10)
+        this.password = hashedPassword
+        next()
+    }catch{
+        console.log("Error in password save.")
     }
-)
+})
+
+UserSchema.virtual("confirmPassword")
+    .get(()=> this._confirmPassword)
+    .set(value=> this._confirmPassword = value)
+
+UserSchema.pre("validate", function(next){
+    if (this.password !==this.confirmPassword){
+        this.invalidate("confirmPassword", "Password and Confirm Password must match!")
+    }
+    next();
+});
+module.exports = mongoose.model("User", UserSchema)
