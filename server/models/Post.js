@@ -1,52 +1,30 @@
 const mongoose = require("mongoose")
-const bcrypt = require("bcrypt")
 
-const UserSchema = mongoose.Schema(
+const PostSchema = mongoose.Schema(
     {
-        firstName: {
-            type:String,
-            required:[true, "You must enter a first name."],
-            minLength:[2, "First name must be at least two (2) characters long."]
-        },
-        lastName: {
+        title: {
             type: String,
-            required: [true, "You must enter a last name."],
-            minLength: [2, "Last name must be at least two (2) characters long."]
+            required: [true, "Your post must have a title"],
+            minLength: [2, "Post title must be at least two (2) characters"]
         },
-        email: {
-            type:String,
-            required: [true, "You must enter an email address."],
-            minLength: [8, "Email address must be at least eight (8) characters long."]
+        body: {
+            type: String,
+            required: [true, "Your post must have a body"],
+            minLength: [10, "Post body must be at least ten (10) characters"]
         },
-        password: {
-            type:String,
-            required: [true, "You must enter an email address."],
-            minLength: [5, "Passwords must be at least five (5) characters long."]
-        },
-        dogName:{
-            type:String,
+        tags: {                                             // subject to change if group doesn't like the way it's set up
+            type: String,
+            required: [true, "Your post must have a tag"],
+            enum: [
+                'Tips and Tricks',
+                'Wholesome',
+                'Training',
+                'Dog Health',
+                'Dog Products'
+            ]
         }
-
     }, {timestamps: true});
 
-UserSchema.pre("save", async function(next){
-    try{
-        const hashedPassword = await bcrypt.hash(this.password, 10)
-        this.password = hashedPassword
-        next()
-    }catch{
-        console.log("Error in password save.")
-    }
-})
+const Post = mongoose.model('Post', PostSchema)
 
-UserSchema.virtual("confirmPassword")
-    .get(()=> this._confirmPassword)
-    .set(value=> this._confirmPassword = value)
-
-UserSchema.pre("validate", function(next){
-    if (this.password !==this.confirmPassword){
-        this.invalidate("confirmPassword", "Password and Confirm Password must match!")
-    }
-    next();
-});
-module.exports = mongoose.model("User", UserSchema)
+module.exports = Post
