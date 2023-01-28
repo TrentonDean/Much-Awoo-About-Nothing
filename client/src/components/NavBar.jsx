@@ -7,6 +7,8 @@ const NavBar = (props) => {
     <div>
         <h1>Much Awoo About Nothing</h1>
         <button></button>
+        <button></button>
+        <button></button>
     </div>
   )
 }
