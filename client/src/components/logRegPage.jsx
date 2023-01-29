@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import axios from "axios"
 import { useNavigate } from 'react-router-dom'
 
-
+//the file anme keeps saving in lower caps
 const LogRegPage = (props) => {
     const {currentUser, setCurrentUser} =props
     const [firstName, setFirstName] =useState("")
