@@ -20,13 +20,13 @@ const UserSchema = mongoose.Schema(
         },
         password: {
             type:String,
-            required: [true, "You must enter an email address."],
+            required: [true, "You must enter a password."],
             minLength: [5, "Passwords must be at least five (5) characters long."]
         },
-        dogName:{
-            type:String,
-        }
-
+        dogs: [{                                                // User model accepting an array of dog objects
+            type: Schema.Types.ObjectId,
+            ref: 'Dog'
+        }]
     }, {timestamps: true});
 
 UserSchema.pre("save", async function(next){

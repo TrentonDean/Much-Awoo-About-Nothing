@@ -19,6 +19,10 @@ const DogSchema = mongoose.Schema(
         },
         tricks: {
             type: String
+        },
+        owner: {                                                // Dog model accepting a user model object as an owner
+            type: [Schema.Types.ObjectId],
+            ref: 'User'
         }
     }, {timestamps: true});
 
