@@ -24,7 +24,7 @@ const UserSchema = mongoose.Schema(
             minLength: [5, "Passwords must be at least five (5) characters long."]
         },
         dogs: [{                                                // User model accepting an array of dog objects
-            type: Schema.Types.ObjectId,
+            type: mongoose.Schema.Types.ObjectId,
             ref: 'Dog'
         }]
     }, {timestamps: true});
