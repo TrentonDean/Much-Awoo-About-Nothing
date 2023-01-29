@@ -14,6 +14,9 @@ app.use(cors({credentials:true, origin:"http://localhost:3000"}))
 const AllMyUserRoutes = require("")
 AllMyUserRoutes(app)
 
+const AllMyDogRoutes = require("./routes/dog.routes")
+AllMyDogRoutes(app)
+
 const AllMyPostRoutes = require("")
 AllMyPostRoutes(app)
 
