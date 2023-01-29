@@ -3,15 +3,28 @@ import {useNavigate} from "react-router-dom"
 
 const NavBar = (props) => {
     const navigate = useNavigate()
+
+    const goToLogReg = () => {
+      navigate("/login_registration")
+    }
+    const goToHome = () => {
+      navigate("/")
+    }
+    const goToProfile = () => {
+      navigate("/profile")
+    }
+    const goToCompose = () => {
+      navigate("/compose")
+    }
   return (
     <div id="navBar">
         
         <div id="pawContainer">
             <div id="navButtonsContainer">
-                <button id="toeBean1" class="navBarButton">Login/<br />Register</button>
-                <button id="toeBean2" class="navBarButton">Home</button>
-                <button id="toeBean2" class="navBarButton">Profile</button>
-                <button id="toeBean1" class="navBarButton">Write A<br /> Post</button>
+                <button id="toeBean1" class="navBarButton" onClick={goToLogReg}>Login/<br />Register</button>
+                <button id="toeBean2" class="navBarButton" onClick={goToHome}>Home</button>
+                <button id="toeBean2" class="navBarButton" onClick={goToProfile}>Profile</button>
+                <button id="toeBean1" class="navBarButton"onClick={goToCompose}>Write A<br /> Post</button>
             </div>
             <div id="centerOfPaw"></div>
         </div>

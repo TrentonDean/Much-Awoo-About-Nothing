@@ -6,6 +6,7 @@ import ComposePost from './components/ComposePost';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState, useNavigate } from 'react';
 import NavBar from './components/NavBar';
+import LogRegPage from './components/LogRegPage';
 
 >>>>>>> ea95bd02955b7b96e93bb40cfef29ad2c01ead16
 
@@ -30,10 +31,11 @@ function App() {
 =======
     <div>
       <BrowserRouter>
-        <Routes>
-
-        </Routes>
         <NavBar setCurrentUser={setCurrentUser} currentUser={currentUser} />
+        <Routes>
+        <Route path="/login_registration" element={<LogRegPage currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
+        </Routes>
+        
       </BrowserRouter>
 
 >>>>>>> ea95bd02955b7b96e93bb40cfef29ad2c01ead16
