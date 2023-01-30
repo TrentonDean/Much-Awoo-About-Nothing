@@ -1,44 +1,29 @@
 import './App.css';
-<<<<<<< HEAD
-import {BrowserRouter, Route, Routes} from "react-router-dom"
-import ComposePost from './components/ComposePost';
-=======
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState, useNavigate } from 'react';
 import NavBar from './components/NavBar';
-import LogRegPage from './components/LogRegPage';
+import LogReg from './components/LogReg';
 
->>>>>>> ea95bd02955b7b96e93bb40cfef29ad2c01ead16
 
 
 function App() {
   const [currentUser, setCurrentUser] =useState(null)
 
   return (
-<<<<<<< HEAD
     <div className="App">
-      <BrowserRouter>
-      {/* Maybe insert a nav bar here -Aimee */}
-      </BrowserRouter>
-      <Routes>
-        <Route path="/muchawoonothing/logReg" />
-        <Route path="/muchawoonothing" />
-        <Route path="/muchawoonothing/compose" element={<ComposePost/>}/>
-        <Route path="/muchawoonothing/:id" />
-        <Route path="/muchawoonothing/profile" />
-        <Route path="/muchawoonothing/edit/:id" />
-      </Routes>
-=======
-    <div>
       <BrowserRouter>
         <NavBar setCurrentUser={setCurrentUser} currentUser={currentUser} />
         <Routes>
-        <Route path="/login_registration" element={<LogRegPage currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
+          <Route path="/" element={<HomePage currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
+          <Route path="/compose" element={<ComposePost currentUser={currentUser} setCurrentUser={setCurrentUser} />}/>
+          <Route path="/login_registration" element={<LogReg currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
+          {/* Do we need an individual post page? */}
+          {/* <Route path="/post/:id" element={<OnePost currentUser={currentUser} setCurrentUser={setCurrentUser} />}/> */}
+          <Route path="/profile/:id" element={<ProfilePage currentUser={currentUser} setCurrentUser={setCurrentUser} />}/>
+          <Route path="/post/edit/:id" element={<EditPost currentUser={currentUser} setCurrentUser={setCurrentUser} />}/>
         </Routes>
-        
       </BrowserRouter>
 
->>>>>>> ea95bd02955b7b96e93bb40cfef29ad2c01ead16
     </div>
   );
 }
