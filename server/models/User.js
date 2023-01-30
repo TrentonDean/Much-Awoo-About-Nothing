@@ -26,7 +26,10 @@ const UserSchema = mongoose.Schema(
         dogs: [{                                                // User model accepting an array of dog objects
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Dog'
-        }]
+        }],
+        profilePic: {
+            type: String
+        }
     }, {timestamps: true});
 
 UserSchema.pre("save", async function(next){

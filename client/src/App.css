@@ -184,14 +184,53 @@ body{
 }
 
 #leftPanelContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   border: white 1px solid;
   width: 10vw;
   height: 70vh;
   position: relative;
-  top: 30vh;
+  top: 27vh;
   padding: 1vh 1vw 1vh 1vw;
 }
 
+.userInfoSide{
+  border: 1px lightcoral solid;
+}
+
 .userImage {
+  height: auto;
+  width: 8vw;
   margin: 1vh 1vw 1vh 1vw;
+}
+
+.userNameSide {
+  margin: 0vh 0vw 1vh 0vw;
+  font-style: bold;
+}
+
+.userBioSide {
+  margin: 0vh 0vw 1vh 0vw;
+  font-style: italic;
+}
+
+.dogInfoSide{
+  border: 1px goldenrod solid;
+}
+
+.dogImage {
+  height: auto;
+  width: 8vw;
+  margin: 1vh 1vw 1vh 1vw;
+}
+
+.dogNameSide {
+  margin: 0vh 0vw 1vh 0vw;
+  font-style: bold;
+}
+
+.dogBio {
+  margin: 0vh 0vw 1vh 0vw;
+  font-style: italic;
 }
