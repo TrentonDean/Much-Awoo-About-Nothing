@@ -3,7 +3,7 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 
-ComposePost = () => {
+const ComposePost = () => {
     const [title, setTitle] = useState("")
     const [body, setBody] = useState("")
     // const [tags, setTags] = useState("")
