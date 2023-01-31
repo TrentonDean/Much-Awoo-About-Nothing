@@ -16,7 +16,18 @@ const ComposePost = (props) => {
 
     const submitHandler = (e) => {
         e.preventDefault()
-        // Add axios code here once post controllers are done
+        axios.post("http://localhost:8000/api/composePost", {
+            title,
+            body,
+            tags
+        }).then((res) => {
+            console.log(res)
+            console.log("catch from back-end")
+            navigate('/')
+        }).catch((err) => {
+            console.log(err);
+            // setErrors(err.response.data.errors);
+        })
     }
 
     return (
@@ -31,14 +42,17 @@ const ComposePost = (props) => {
                     <div>
                         <label>Post Title: </label>
                         <input type="text" onChange={(e) => setTitle(e.target.value)} />
+                        {/* {errors.title ? <span>{errors.title.message}</span> : null} */}
                     </div>
                     <div>
                         <label>Post Body: </label>
                         <textarea onChange={(e) => setBody(e.target.value)} />
+                        {/* {errors.body ? <span>{errors.body.message}</span> : null} */}
                     </div>
                     <div>
                         <label>Tags: </label>
                         <input type="text" onChange={(e) => setTags(e.target.value)}></input>
+                        {/* {errors.tags ? <span>{errors.tags.message}</span> : null} */}
                     </div>
                     <div>
                         <button>Submit</button>
