@@ -1,23 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useState, useNavigate } from 'react';
+import NavBar from './components/NavBar';
+import LogReg from './components/LogReg';
+import HomePage from './components/HomePage';
+import ComposePost from './components/ComposePost';
+import RightPanel from './components/RightPanel';
+import LeftPanel from './components/LeftPanel';
+
+
 
 function App() {
+  const [currentUser, setCurrentUser] =useState(null)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <NavBar setCurrentUser={setCurrentUser} currentUser={currentUser} />
+        <Routes>
+          <Route path="/login_registration" element={<LogReg currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
+          <Route path="/compose" element={<ComposePost currentUser={currentUser} setCurrentUser={setCurrentUser} />}/>
+          <Route path="/" element={<HomePage currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
+          {/* these can be removed before we merge to main */}
+          {/* <Route path="/test/LeftPanel" element={<LeftPanel />} />
+          <Route path="/test/RightPanel" element={<RightPanel />} /> */}
+          {/* Do we need an individual post page? */}
+          {/* <Route path="/post/:id" element={<OnePost currentUser={currentUser} setCurrentUser={setCurrentUser} />}/> */}
+          {/* <Route path="/profile/:id" element={<ProfilePage currentUser={currentUser} setCurrentUser={setCurrentUser} />}/>
+          <Route path="/post/edit/:id" element={<EditPost currentUser={currentUser} setCurrentUser={setCurrentUser} />}/> */}
+        </Routes>
+      </BrowserRouter>
+
     </div>
   );
 }

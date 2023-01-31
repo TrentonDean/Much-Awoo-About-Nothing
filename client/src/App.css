@@ -1,3 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-color: grey;
+}
+
 .App {
   text-align: center;
 }
@@ -36,3 +45,311 @@
     transform: rotate(360deg);
   }
 }
+
+#navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: top;
+  height: 25vh;
+  width: 100vw;
+  border: 1px red solid;
+  position:sticky;
+  top: 0;
+  left: 0
+}
+
+#navBarTitle{
+  flex: 2;
+  font-size: 7vh;
+  align-self: center;
+  margin-left: 5vw;
+}
+
+#pawContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px red solid;
+  padding: 1vh 1vw 1vh 1vw;
+  overflow: visible;
+  min-height: 30vh;
+  max-width: 20vw;
+}
+
+#navButtonsContainer {
+  border: 1px green solid;
+  display: flex;
+}
+
+#centerOfPaw {
+  background-color: blue;
+  border-radius: 100%;
+  border: 5vh solid blue;
+  width: 10vw;
+  height: 30vh;
+  width:30vh;
+  margin-top: -12vh;
+  clip-path: polygon(54% 29%, 45% 32%, 36% 38%, 24% 48%, 15% 61%, 10% 69%, 8% 86%, 14% 89%, 21% 90%, 31% 87%, 45% 79%, 54% 78%, 70% 81%, 81% 86%, 89% 79%, 89% 66%, 85% 56%, 79% 48%, 74% 41%, 69% 36%);
+}
+
+#toeBean1{
+  margin-top: 5vh;
+  margin-bottom: 0;
+  /* width:5vw; */
+  overflow: hidden;
+}
+
+#toeBean2{
+  margin-top: 0;
+  margin-bottom: 5vh;
+  overflow: hidden;
+}
+
+
+/* mouse over to see menu selections */
+.navBarButton {
+  background-color: blue;
+  color: blue;
+  font-size: 1.5vh;
+  text-align: center;
+  height:10vh;
+  width: auto;
+  margin: 0vh 0.5vw;
+  padding: 1vh 1vw 1vh 1vw;
+  border: blue;
+  border-radius: 50%;
+  transition-duration: 0.4s;
+}
+
+.navBarButton:hover {
+  background-color: red;
+  color: rebeccapurple;
+  font-size: 1.5vh;
+  width: fit-content;
+}
+
+.navBarButton:active {
+  background-color: rebeccapurple;
+  color: red;
+  font-size: 1.5vh;
+  width: fit-content;
+}
+
+/* menu visible and beans change on mouseover */
+
+/* .navBarButton {
+  background-color: blue;
+  color: blanchedalmond;
+  font-size: 1.5vh;
+  text-align: center;
+  height:10vh;
+  width: auto;
+  margin: 0vh 0.5vw;
+  padding: 1vh 1vw 1vh 1vw;
+  border: blue;
+  border-radius: 50%;
+  transition-duration: 0.4s;
+}
+
+.navBarButton:hover {
+  background-color: red;
+  color: rebeccapurple;
+  font-size: 3vh;
+  width: fit-content;
+}
+
+.navBarButton:active {
+  background-color: rebeccapurple;
+  color: red;
+  font-size: 3vh;
+  width: fit-content;
+} */
+
+
+#logRegComponent {
+  position:relative;
+  top: 25vh;
+  margin-left: 20vw;
+  border: 1px white solid;
+  height: fit-content;
+  width: auto;
+  max-width: 80vw;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.logRegForm {
+  display: flex;
+  flex-direction: column;
+}
+
+#leftPanelContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border: white 1px solid;
+  width: 10vw;
+  height: 70vh;
+  position: relative;
+  top: 27vh;
+  left: 0vw;
+  padding: 1vh 1vw 1vh 1vw;
+}
+
+.userInfoSide{
+  border: 1px lightcoral solid;
+}
+
+.userImage {
+  height: auto;
+  width: 8vw;
+  margin: 1vh 1vw 1vh 1vw;
+}
+
+.userNameSide {
+  margin: 0vh 0vw 1vh 0vw;
+  font-style: bold;
+}
+
+.userBioSide {
+  margin: 0vh 0vw 1vh 0vw;
+  font-style: italic;
+}
+
+.dogInfoSide{
+  border: 1px goldenrod solid;
+}
+
+.dogImage {
+  height: auto;
+  width: 8vw;
+  margin: 1vh 1vw 1vh 1vw;
+}
+
+.dogNameSide {
+  margin: 0vh 0vw 1vh 0vw;
+  font-style: bold;
+}
+
+.dogBio {
+  margin: 0vh 0vw 1vh 0vw;
+  font-style: italic;
+}
+
+#rightPanelContainer {
+  border: black 1px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border: white 1px solid;
+  width: 10vw;
+  height: 70vh;
+  position: absolute;
+  top: 27vh;
+  right: 0vw;
+  padding: 1vh 1vw 1vh 1vw;
+  overflow-y: scroll;
+}
+
+#postContainer {
+  border:1px solid blue;
+  margin: 0vw 1vh;
+  padding: 1vh 1vw 1vh 1vw;
+  width: 73vw;
+  height:70vh;
+  position: absolute;
+  top:27vh;
+  left:12vw;
+  overflow-y: scroll;
+}
+
+#formContainer {
+  border: 1px white solid;
+  height: fit-content;
+  position: relative;
+}
+
+#composeForm {
+  border: 1px solid blue;
+  display: flex;
+  justify-content: center;
+  height: fit-content;
+  margin-top: -250px;
+  margin-left: 200px;
+  margin-right: 300px;
+  flex-direction: column;
+  border-radius: 2px;
+  padding: 20px;
+}
+
+#composeForm h2 {
+  border-bottom: 1px solid black;
+  text-align: center;
+  display: block;
+  padding: 0;
+  margin-bottom: 40px;
+  font-size: x-large;
+}
+
+#composeForm div {
+  display: block;
+  text-align: center;
+  padding: 0;
+  border: 1px solid black;
+  margin-bottom: 35px;
+  border-radius: 3px;
+}
+
+#composeForm div:last-child {
+  border:none;
+  margin-bottom: 0px;
+  text-align: center;
+}
+
+#composeForm div > label {
+  display: block;
+  float: left;
+  margin-top: -25px;
+  background: grey;
+  height: 20px;
+  color: black;
+  font-size: 18px;
+  overflow: hidden;
+}
+
+#composeForm input[type="text"] {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 99.5%;
+  display: block;
+  height: 25px;
+  outline: none;
+  border: none;
+  line-height: 25px;
+  padding: 0;
+  margin: 2px;
+  color: black;
+}
+
+#composeForm textarea {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 99.5%;
+  display: block;
+  height: 150px;
+  padding: 0;
+  margin: 2px;
+  color: black;
+}
+
+#composeForm button {
+  background: lightblue;
+  border: none;
+  padding: 10px 20px 10px 20px;
+  border-radius: 3px;
+  border-color: 2px black solid;
+  color: black;
+}
+
