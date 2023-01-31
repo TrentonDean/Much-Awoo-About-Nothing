@@ -4,13 +4,15 @@ const loginSchema = mongoose.Schema({
 
     firstName: {
         type: String,
-        required: [true, "First Name is required"]
+        required: [true, "First Name is required"],
+        minLength:[2, "First name must be at least two (2) characters long."]
     },
 
     lastName: {
 
         type: String,
-        required: [true, "Last name is required"]
+        required: [true, "Last name is required"],
+        minLength:[2, "Last name must be at least two (2) characters long."]
     },
 
     email: {
@@ -21,6 +23,15 @@ const loginSchema = mongoose.Schema({
     password: {
         type: String,
         minLength: [7, "Password must be more then 7 characters"]
+    },
+
+    dogs: [{                                                // User model accepting an array of dog objects
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Dog'
+    }],
+
+    profilePic: {
+        type: String
     }
 
 }, {timeStamp: true})

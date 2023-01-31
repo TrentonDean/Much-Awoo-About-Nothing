@@ -3,7 +3,7 @@ const loginModel = require('../models/login.models')
 const bcrypt = require('bcryypt')
 
 const jwt = require('jsonwebtoken')
-const SECRET = 'Fooled you there is no secret 🙂'
+const SECRET = process.env.SECRET
 
 const register = async (req, res) => {
     try {
