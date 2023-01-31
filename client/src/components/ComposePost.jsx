@@ -1,12 +1,14 @@
-// done by Aimee
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import LeftPanel from "./LeftPanel";
 
-const ComposePost = () => {
+const ComposePost = (props) => {
     const [title, setTitle] = useState("")
     const [body, setBody] = useState("")
-    // const [tags, setTags] = useState("")
+    const [tags, setTags] = useState("")
+
+    const {currentUser, setCurrentUser} = props;
 
     const [errors, setErrors] = useState({})
 
@@ -18,11 +20,13 @@ const ComposePost = () => {
     }
 
     return (
-        <div>
+        <div id="formContainer">
             <div>
                 {/* put profile of user and dog here? */}
             </div>
-            <div>
+            <LeftPanel />
+            <div id="composeForm">
+                <h2>Make a Post!</h2>
                 <form onSubmit={submitHandler} >
                     <div>
                         <label>Post Title: </label>
@@ -32,10 +36,10 @@ const ComposePost = () => {
                         <label>Post Body: </label>
                         <textarea onChange={(e) => setBody(e.target.value)} />
                     </div>
-                    {/* <div>
+                    <div>
                         <label>Tags: </label>
                         <input type="text" onChange={(e) => setTags(e.target.value)}></input>
-                    </div> */}
+                    </div>
                     <div>
                         <button>Submit</button>
                     </div>
