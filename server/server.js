@@ -17,7 +17,7 @@ AllMyUserRoutes(app)
 const AllMyDogRoutes = require("./routes/dog.routes")
 AllMyDogRoutes(app)
 
-const AllMyPostRoutes = require("")
+const AllMyPostRoutes = require("./routes/post.routes")
 AllMyPostRoutes(app)
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}.`))
