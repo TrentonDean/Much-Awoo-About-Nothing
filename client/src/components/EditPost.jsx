@@ -4,7 +4,7 @@ import {useNavigate, useParams, Link} from "react-router-dom";
 import LeftPanel from "./LeftPanel";
 
 const EditPost = () => {
-
+    const {currentUser, setCurrentUser} =useState;
     const{id} = useParams();
 
     const [title, setTitle] = useState("")
@@ -17,7 +17,10 @@ const EditPost = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        
+        axios.get("http://localhost:8000/api/currentUser", {withCredentials:true})
+        .then(res=>{
+            console.log(res.data)
+        })
     },[])
 
     const submitHandler = (e) => {

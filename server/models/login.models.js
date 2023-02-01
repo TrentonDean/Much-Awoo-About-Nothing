@@ -37,10 +37,10 @@ const loginSchema = mongoose.Schema({
 }, {timeStamp: true})
 
 
-Schema.virtual('confirmP')
+loginSchema.virtual('confirmP')
     .get( () => this._confirmP )
     .set( e => this._confirmP = e );
-Schema.pre('validate', function(next){
+loginSchema.pre('validate', function(next){
     if (this.password !== this.confirmP) {
         this.invalidate('confirmP', 'Passwords must match!!')
     }
