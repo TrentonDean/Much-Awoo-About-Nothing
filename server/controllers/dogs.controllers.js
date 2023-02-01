@@ -1,5 +1,5 @@
 const Dog = require('../models/Dog')
-const User = require('../models/User')
+const login = require("../models/login.models")
 const jwt = require('jsonwebtoken')
 const SECRET = process.env.SECRET_KEY
 

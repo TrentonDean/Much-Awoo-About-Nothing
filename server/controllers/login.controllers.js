@@ -1,6 +1,6 @@
 const loginModel = require('../models/login.models')
 
-const bcrypt = require('bcryypt')
+const bcrypt = require('bcrypt')
 
 const jwt = require('jsonwebtoken')
 const SECRET = process.env.SECRET
