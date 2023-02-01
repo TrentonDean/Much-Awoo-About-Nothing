@@ -16,6 +16,20 @@ const OnePost = (props) => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        axios.get("http://localhost:8000/api/currentUser", {withCredentials:true})
+        .then(res=>{
+            console.log("edit page",res.data)
+            setCurrentUser({
+                _id: res.data._id,
+                firstName: res.data.firstName,
+                lastName: res.data.lastName,
+                dogs: res.data.dogs
+        })
+        })
+        .catch(err=>console.log("logged in user fetch error", err))
+    },[])
+
+    useEffect(() => {
         axios.get("http://localhost:8000/api/getOnePost/"+id, {withCredentials:true})
         .then(res=>{
             console.log(res.data)
