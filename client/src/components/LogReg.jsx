@@ -16,7 +16,7 @@ const LogReg = (props) => {
 
     const loginUserHandler = (e) => {
         e.preventDefault()
-        //need route for login
+        
         axios.post("http://localhost:8000/api/login",{
         	email,
         	password
@@ -71,8 +71,8 @@ const LogReg = (props) => {
         },{withCredentials:true, credentials:"include"})
         .then((res)=>{
             console.log("guess it worked",res)
-            // autoLogin(email, password)
-            // navigate("/")
+            autoLogin(email, password)
+            navigate("/")
         }).catch(err=>{
             console.log("Error with user registration function.", err)
             setErrors(err.response.data.errors)

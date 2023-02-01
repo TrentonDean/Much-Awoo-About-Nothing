@@ -263,23 +263,27 @@ body{
   overflow-y: scroll;
 }
 
-#formContainer {
+/* .formContainer {
   border: 1px white solid;
-  height: fit-content;
-  position: relative;
-}
+  margin: 0vw 1vh;
+  padding: 1vh 1vw 1vh 1vw;
+  width: 73vw;
+  height:70vh;
+  position: absolute;
+  top:27vh;
+  left:12vw;
+  overflow-y: scroll;
+} */
 
 #composeForm {
-  border: 1px solid blue;
-  display: flex;
-  justify-content: center;
-  height: fit-content;
-  margin-top: -250px;
-  margin-left: 200px;
-  margin-right: 300px;
-  flex-direction: column;
-  border-radius: 2px;
-  padding: 20px;
+  margin: 0vw 1vh;
+  padding: 1vh 1vw 1vh 1vw;
+  width: 73vw;
+  height:70vh;
+  position: absolute;
+  top:27vh;
+  left:12vw;
+  overflow-y: scroll;
 }
 
 #composeForm h2 {
