@@ -3,7 +3,7 @@ const loginModel = require('../models/login.models')
 const bcrypt = require('bcrypt')
 
 const jwt = require('jsonwebtoken')
-const SECRET = process.env.SECRET_KEY
+const SECRET = process.env.SECRET
 
 const register = async (req, res) => {
     try {
@@ -13,9 +13,9 @@ const register = async (req, res) => {
         } else {
             const data = new loginModel(req.body)
             const user = await data.save()
-            const payload = { _id: user._id, email: user.email, firstName: user.firstName, lastName: user.lastName}
+            const payload = { _id: user._id, email: user.email, first: user.firstName, last: user.lastName}
             const token = jwt.sign(payload, SECRET)
-            res.cookie('userToken', token, {httpOnly:true, expires: new Date(Date.now() + 900000) })
+            res.cookie('userToken', token, { expires: new Date(Date.now() + 900000) })
             .json({ successMessage: 'userToken: ', user: payload })
         }
     } catch (err) {
