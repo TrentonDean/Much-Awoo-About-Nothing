@@ -9,7 +9,7 @@ const LogReg = (props) => {
     const [lastName, setLastName] =useState("")
     const [email, setEmail]=useState("")
     const [password, setPassword]=useState("")
-    const [confirmPassword, setConfirmPassword] =useState("")
+    const [confirmP, setConfirmP] =useState("")
 
     const [errors, setErrors] =useState("")
     const navigate = useNavigate()
@@ -31,7 +31,7 @@ const LogReg = (props) => {
             dogName:res.data.user.dogName
             })
             //need page to route to
-            navigate("")
+            navigate("http://localhost:8000/api/login")
         }).catch(err=>{
         	console.log("Login error.", err)
         	setErrors(err.response.data.error)
@@ -40,7 +40,7 @@ const LogReg = (props) => {
     //to automatically log new users in on registration
     const autoLogin = (email, password) => {
         //needs login route
-        axios.post("", {
+        axios.post("http://localhost:8000/api/login", {
             email,
             password
         }, {withCredentials:true, credentials:"include"})
@@ -60,12 +60,12 @@ const LogReg = (props) => {
     const registrationHandler = (e) => {
         e.preventDefault()
         //need registration route
-        axios.post("", {
+        axios.post("http://localhost:8000/api/register", {
             firstName,
             lastName,
             email,
             password,
-            confirmPassword,
+            confirmP,
         },{withCredentials:true, credentials:"include"})
         .then((res)=>{
             console.log("guess it worked",res)
@@ -106,8 +106,8 @@ const LogReg = (props) => {
 				<input type="password" onChange={(e)=>setPassword(e.target.value)} />
 				{errors.password && <span>{errors.password.message}</span>}
 				<label>Confirm Password:</label>
-				<input type="password" onChange={(e)=>setConfirmPassword(e.target.value)} />
-				{errors.confirmPassword && <span>{errors.confirmPassword.message}</span>}
+				<input type="password" onChange={(e)=>setConfirmP(e.target.value)} />
+				{errors.confirmP && <span>{errors.confirmP.message}</span>}
 				<button class="border border-neon-yellow">Sign up!</button>
 			</form>
         </div>
