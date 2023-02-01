@@ -1,7 +1,9 @@
 import React from 'react'
 import {useNavigate} from "react-router-dom"
+import axios from "axios"
 
 const NavBar = (props) => {
+    const {currentUser, setCurrentUser} =props;
     const navigate = useNavigate()
 
     const goToLogReg = () => {
@@ -11,10 +13,20 @@ const NavBar = (props) => {
       navigate("/")
     }
     const goToProfile = () => {
-      navigate("/profile")
+      navigate(`/profile/${currentUser._id}`)
     }
     const goToCompose = () => {
       navigate("/compose")
+    }
+
+    const logoutUser = () => {
+      axios.post("http://localhost:8000/api/logout", {withCredentials:true})
+      .then(res=>{
+        console.log("logged out", res)
+        setCurrentUser(null)
+        navigate("/")
+      })
+      .catch(err=>console.log("error loggin out", err))
     }
   return (
     <div id="navBar">
@@ -29,6 +41,7 @@ const NavBar = (props) => {
             <div id="centerOfPaw"></div>
         </div>
         <p id="navBarTitle">Much Awoo About Nothing</p>
+        <button type='button' onClick={logoutUser} >Logawooooout</button>
     </div>
   )
 }
