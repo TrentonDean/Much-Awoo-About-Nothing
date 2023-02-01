@@ -54,7 +54,7 @@ const OnePost = (props) => {
 
     return (
         <div>
-            <LeftPanel />
+            <LeftPanel currentUser={currentUser} setCurrentUser={setCurrentUser} />
             <div id="composeForm">
                 <p>{title}</p>
                 <p>{body}</p>
@@ -62,7 +62,7 @@ const OnePost = (props) => {
                 <button onClick={()=>{editPost(id)}}>Edit</button>
                 <button onClick={()=>{deletePost(id)}}>Delete</button>
             </div>
-            <RightPanel />
+            <RightPanel currentUser={currentUser} setCurrentUser={setCurrentUser} />
         </div>
     )
 }

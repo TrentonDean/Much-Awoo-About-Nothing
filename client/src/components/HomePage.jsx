@@ -9,10 +9,6 @@ const HomePage = (props) => {
     const {currentUser, setCurrentUser} =props;
     const [bodyPosts, setBodyPosts] =useState([]);
 
-    useEffect(()=>{
-        //get user data if logged in
-    })
-
 
     useEffect(()=>{
         axios.get("http://localhost:8000/api/getAllPosts/", {withCredentials:true})
@@ -29,7 +25,7 @@ const HomePage = (props) => {
     
   return (
     <div>
-        <LeftPanel />
+        <LeftPanel currentUser={currentUser} setCurrentUser={setCurrentUser} />
         <div id="postContainer">
             {bodyPosts.map((item,id)=>{
                 return(
@@ -43,7 +39,7 @@ const HomePage = (props) => {
             })}
             
         </div>
-        <RightPanel />
+        <RightPanel currentUser={currentUser} setCurrentUser={setCurrentUser} />
     </div>
   )
 }

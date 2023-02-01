@@ -66,7 +66,7 @@ const EditPost = (props) => {
 
     return (
         <div>
-        <LeftPanel />
+        <LeftPanel currentUser={currentUser} setCurrentUser={setCurrentUser} />
         <div class="formContainer">
             
             <div id="composeForm">
@@ -91,7 +91,7 @@ const EditPost = (props) => {
                 </form>
             </div>
         </div>
-        <RightPanel />
+        <RightPanel currentUser={currentUser} setCurrentUser={setCurrentUser} />
         </div>
     )
 }

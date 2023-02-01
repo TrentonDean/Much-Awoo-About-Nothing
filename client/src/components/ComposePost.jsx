@@ -54,7 +54,7 @@ const ComposePost = (props) => {
     return (
         <div >
             <div>
-            <LeftPanel />
+            <LeftPanel currentUser={currentUser} setCurrentUser={setCurrentUser} />
             
             
             
@@ -79,7 +79,7 @@ const ComposePost = (props) => {
                 </form>
                 </div>
             </div>
-            <RightPanel />
+            <RightPanel currentUser={currentUser} setCurrentUser={setCurrentUser} />
             </div>
     )
 }
