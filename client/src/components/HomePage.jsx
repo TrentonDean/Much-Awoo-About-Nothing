@@ -13,7 +13,7 @@ const HomePage = (props) => {
     })
 
     useEffect(()=>{
-        axios.get("http://localhost:8000/api/getAllPosts/")
+        axios.get("http://localhost:8000/api/getAllPosts/", {withCredentials:true})
         .then(res=>{
             let postArray = res.data
             let chronOrderPosts = postArray.sort(
@@ -22,7 +22,7 @@ const HomePage = (props) => {
             setBodyPosts(chronOrderPosts)
         }
         )
-    })
+    },[])
     
   return (
     <div>
