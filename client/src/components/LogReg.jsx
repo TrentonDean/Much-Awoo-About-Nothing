@@ -17,7 +17,7 @@ const LogReg = (props) => {
     const loginUserHandler = (e) => {
         e.preventDefault()
         //need route for login
-        axios.post("",{
+        axios.post("http://localhost:8000/api/login",{
         	email,
         	password
         },{withCredentials:true, credentials:"include"})
@@ -28,13 +28,13 @@ const LogReg = (props) => {
             firstName:res.data.user.firstName,
             lastName:res.data.user.lastName,
             email:res.data.user.email,
-            dogName:res.data.user.dogName
+            dogs:res.data.user.dogs
             })
             //need page to route to
-            navigate("http://localhost:8000/api/login")
+            navigate("/")
         }).catch(err=>{
         	console.log("Login error.", err)
-        	setErrors(err.response.data.error)
+        	setErrors(err.response.data.errors)
         })}
 
     //to automatically log new users in on registration
@@ -48,10 +48,12 @@ const LogReg = (props) => {
                 console.log("Successfully logged in after registration.", res)
                 setCurrentUser({
                     _id:res.data.user._id,
-                    userName:res.data.user.userName,
-                    email:res.data.user.email})
+                firstName:res.data.user.firstName,
+                lastName:res.data.user.lastName,
+                email:res.data.user.email,
+                dogs:res.data.user.dogs})
                     //need page to route to
-                    navigate("")
+                    navigate("/")
             }).catch(err=>{
                 console.log("Autologin error.", err)
             })
@@ -69,8 +71,8 @@ const LogReg = (props) => {
         },{withCredentials:true, credentials:"include"})
         .then((res)=>{
             console.log("guess it worked",res)
-            autoLogin(email, password)
-            navigate("/")
+            // autoLogin(email, password)
+            // navigate("/")
         }).catch(err=>{
             console.log("Error with user registration function.", err)
             setErrors(err.response.data.errors)
@@ -95,16 +97,16 @@ const LogReg = (props) => {
         	<form class="logRegForm" onSubmit={registrationHandler}>
 				<label>First name:</label>
 				<input type="text" onChange={(e)=>setFirstName(e.target.value)} />
-				{errors.firstName && <span>{errors.firstName.message}</span>}
+				{/* {errors.firstName && <span>{errors.firstName.message}</span>} */}
 				<label>Last name:</label>
 				<input type="text" onChange={(e)=>setLastName(e.target.value)} />
-				{errors.lastName && <span>{errors.lastName.message}</span>}
+				{/* {errors.lastName && <span>{errors.lastName.message}</span>} */}
 				<label>Email:</label>
 				<input type="text" onChange={(e)=>setEmail(e.target.value)} />
-				{errors.email && <span>{errors.email.message}</span>}
+				{/* {errors.email && <span>{errors.email.message}</span>} */}
 				<label>Password:</label>
 				<input type="password" onChange={(e)=>setPassword(e.target.value)} />
-				{errors.password && <span>{errors.password.message}</span>}
+				{/* {errors.password && <span>{errors.password.message}</span>} */}
 				<label>Confirm Password:</label>
 				<input type="password" onChange={(e)=>setConfirmP(e.target.value)} />
 				{errors.confirmP && <span>{errors.confirmP.message}</span>}

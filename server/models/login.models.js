@@ -37,10 +37,10 @@ const loginSchema = mongoose.Schema({
 }, {timeStamp: true})
 
 
-Schema.virtual('confirmP')
+loginSchema.virtual('confirmP')
     .get( () => this._confirmP )
     .set( e => this._confirmP = e );
-Schema.pre('validate', function(next){
+loginSchema.pre('validate', function(next){
     if (this.password !== this.confirmP) {
         this.invalidate('confirmP', 'Passwords must match!!')
     }
@@ -51,7 +51,7 @@ Schema.pre('validate', function(next){
 
 
 // SAVE ENCRYPTED PASSWORD
-Schema.pre('save', async function (next) {
+loginSchema.pre('save', async function (next) {
     try {
         const hashedP = await bcrypt.hash(this.password, 10)
         this.password = hashedP
@@ -61,4 +61,4 @@ Schema.pre('save', async function (next) {
     }
 })
 
-module.exports = mongoose.model('login', loginSchema)
+module.exports = mongoose.model('Login', loginSchema)
