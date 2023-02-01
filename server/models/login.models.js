@@ -51,7 +51,7 @@ loginSchema.pre('validate', function(next){
 
 
 // SAVE ENCRYPTED PASSWORD
-Schema.pre('save', async function (next) {
+loginSchema.pre('save', async function (next) {
     try {
         const hashedP = await bcrypt.hash(this.password, 10)
         this.password = hashedP
@@ -61,4 +61,4 @@ Schema.pre('save', async function (next) {
     }
 })
 
-module.exports = mongoose.model('login', loginSchema)
+module.exports = mongoose.model('Login', loginSchema)
