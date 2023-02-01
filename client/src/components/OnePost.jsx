@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import LeftPanel from "./LeftPanel";
+import RightPanel from "./RightPanel";
 
 const OnePost = (props) => {
     const {currentUser, setCurrentUser} =props;
@@ -22,18 +24,31 @@ const OnePost = (props) => {
             setTags(res.data.tags)
 
         })
-    }, [id]);
+    }, []);
 
-    // I'm not sure if you want to add the delete feature here or elsewhere
-    const deleteFilter = () => {
+    const editPost = (postId) => {
+        navigate(`/post/edit/${id}`)
+    }
 
+    const deletePost = (postId) => {
+        axios.delete("http://localhost:8000/api/deletePost"+id)
+        .then(res=>{
+            console.log("Post deleted!")
+        })
+        .catch(err=>console.log("Error deleting post.", err))
     }
 
     return (
         <div>
-            <p>{title}</p>
-            <p>{body}</p>
-            <p>{tags}</p>
+            <LeftPanel />
+            <div id="composeForm">
+                <p>{title}</p>
+                <p>{body}</p>
+                <p>{tags}</p>
+                <button onClick={()=>{editPost(id)}}>Edit</button>
+                <button onClick={()=>{deletePost(id)}}>Delete</button>
+            </div>
+            <RightPanel />
         </div>
     )
 }

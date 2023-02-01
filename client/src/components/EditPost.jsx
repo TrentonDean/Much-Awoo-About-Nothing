@@ -25,7 +25,7 @@ const EditPost = (props) => {
                 _id: res.data._id,
                 firstName: res.data.firstName,
                 lastName: res.data.lastName,
-                dog: res.data.dogs
+                dogs: res.data.dogs
         })
         })
         .catch(err=>console.log("logged in user fetch error", err))
@@ -41,6 +41,14 @@ const EditPost = (props) => {
         })
         .catch(err=>console.log("error with post fetch", err))
     },[])
+
+    const deletePost = (postId) => {
+        axios.delete("http://localhost:8000/api/deletePost"+id)
+        .then(res=>{
+            console.log("Post deleted!")
+        })
+        .catch(err=>console.log("Error deleting post.", err))
+    }
 
     const submitHandler = (e) => {
         e.preventDefault()
@@ -78,6 +86,7 @@ const EditPost = (props) => {
                     </div>
                     <div>
                         <button>Update</button>
+                        <button onClick={()=>{deletePost(id)}}>Delete</button>
                     </div>
                 </form>
             </div>
