@@ -23,7 +23,7 @@ const ComposePost = (props) => {
                 _id: res.data._id,
                 firstName: res.data.firstName,
                 lastName: res.data.lastName,
-                dog: res.data.dogs
+                dogs: res.data.dogs
         })
         })
         .catch(err=>console.log("logged in user fetch error", err))

@@ -13,9 +13,6 @@ const HomePage = (props) => {
         //get user data if logged in
     })
 
-    const goToEdit =(postId) => {
-        navigate(`/post/edit/${postId}`)
-    }
 
     useEffect(()=>{
         axios.get("http://localhost:8000/api/getAllPosts/", {withCredentials:true})
@@ -37,7 +34,7 @@ const HomePage = (props) => {
             {bodyPosts.map((item,id)=>{
                 return(
                     <div>
-                        <p>{item.title}</p>
+                        <Link to={`/post/${item._id}`}>{item.title}</Link>
                         <p>{item.body}</p>
                         <p>{item.tags}</p>
                         <Link to={`/post/edit/${item._id}`}>Edit</Link>
