@@ -357,3 +357,24 @@ body{
   color: black;
 }
 
+.updateFormsContainer {
+  border: yellow 1px dotted;
+  display: flex;
+  justify-content: space-evenly;
+  position: absolute;
+  left:12vw;
+  width:80vw;
+  overflow-y: scroll;
+}
+
+#userForm{
+  display: flex;
+  flex-direction: column;
+}
+
+#dogForm{
+  display: flex;
+  flex-direction: column;
+}
+
+
