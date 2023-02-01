@@ -32,6 +32,9 @@ const loginSchema = mongoose.Schema({
 
     profilePic: {
         type: String
+    },
+    bio:{
+        type:String
     }
 
 }, {timeStamp: true})
