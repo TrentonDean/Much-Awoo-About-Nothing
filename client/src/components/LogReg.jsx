@@ -27,7 +27,7 @@ const LogReg = (props) => {
                 res.data.user.dogs =[{
                     name: "The Cutest",
                     bio: "Tell us your dog's story!"
-                  }]
+                }]
             }
         	setCurrentUser({
             _id:res.data.user._id,
@@ -90,6 +90,7 @@ const LogReg = (props) => {
         	{/* //login form */}
         <div>
         	<form class="logRegForm" onSubmit={loginUserHandler}>
+                <h3>Login</h3>
         		<label>Email:</label>
         		<input type="text" onChange={(e)=>setEmail(e.target.value)} />
 				<label>Password:</label>
@@ -101,6 +102,7 @@ const LogReg = (props) => {
         {/* //registration form */}
         <div >
         	<form class="logRegForm" onSubmit={registrationHandler}>
+                <h3>Register</h3>
 				<label>First name:</label>
 				<input type="text" onChange={(e)=>setFirstName(e.target.value)} />
 				{errors.firstName && <span>{errors.firstName.message}</span>}
