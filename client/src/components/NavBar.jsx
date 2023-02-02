@@ -36,7 +36,7 @@ const NavBar = (props) => {
                 <button id="toeBean1" class="navBarButton" onClick={goToLogReg}>Login/<br />Register</button>
                 <button id="toeBean2" class="navBarButton" onClick={goToHome}>Home</button>
                 <button id="toeBean2" class="navBarButton" onClick={goToProfile}>Profile</button>
-                <button id="toeBean1" class="navBarButton"onClick={goToCompose}>Write A<br /> Post</button>
+                <button id="toeBean1" class="navBarButton" onClick={goToCompose}>Write A<br /> Post</button>
             </div>
             <div id="centerOfPaw"></div>
         </div>

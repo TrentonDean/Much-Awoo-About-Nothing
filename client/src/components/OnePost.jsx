@@ -45,9 +45,10 @@ const OnePost = (props) => {
     }
 
     const deletePost = (postId) => {
-        axios.delete("http://localhost:8000/api/deletePost"+id)
+        axios.delete("http://localhost:8000/api/deletePost/"+id)
         .then(res=>{
             console.log("Post deleted!")
+            navigate('/')
         })
         .catch(err=>console.log("Error deleting post.", err))
     }

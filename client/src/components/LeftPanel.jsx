@@ -25,12 +25,12 @@ console.log("left panel",currentUser)
       {currentUser!=null?
       <span>
         <img class="userImage" alt="the current user's face" src={userPic}></img>
-        <p class="userNameSide">{currentUser.firstName}{currentUser.lastName}</p>
+        <p class="userNameSide">{currentUser.firstName} {currentUser.lastName}</p>
         <p class="userBioSide">{currentUser.bio}</p>
         <img class="dogImage" alt="the current user's dog" src={dogPic}></img>
         <p>{currentUser.dogs}</p>
         </span>:<span>
-        <p>this element didn't load</p>
+        <p>Your info here!</p>
         </span>}
     </div>
   )

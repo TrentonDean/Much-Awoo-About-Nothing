@@ -58,7 +58,7 @@ const updateUserHandler = (e) => {
     lastName,
     email,
     dogs,
-    bio:bio
+    bio
   }, {withCredentials:true})
   .then (res=>console.log("successful update!"))
   .catch(err=>console.log("Error updating profile.", err))
@@ -82,7 +82,7 @@ const updateDogHandler = (e) => {
     breed,
     bio:dogBio,
     tricks,
-    owner
+    owner: currentUser._id
   }, {withCredentials:true})
   .then(res=>console.log("successful pupdate!"))
   .catch(err=>console.log("Error pupdating.", err))

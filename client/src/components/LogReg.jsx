@@ -81,7 +81,7 @@ const LogReg = (props) => {
             navigate("/")
         }).catch(err=>{
             console.log("Error with user registration function.", err)
-            setErrors(err.response.data.errors)
+            setErrors(err.res.data.errors)
         })
     }
 
@@ -103,16 +103,16 @@ const LogReg = (props) => {
         	<form class="logRegForm" onSubmit={registrationHandler}>
 				<label>First name:</label>
 				<input type="text" onChange={(e)=>setFirstName(e.target.value)} />
-				{/* {errors.firstName && <span>{errors.firstName.message}</span>} */}
+				{errors.firstName && <span>{errors.firstName.message}</span>}
 				<label>Last name:</label>
 				<input type="text" onChange={(e)=>setLastName(e.target.value)} />
-				{/* {errors.lastName && <span>{errors.lastName.message}</span>} */}
+				{errors.lastName && <span>{errors.lastName.message}</span>}
 				<label>Email:</label>
 				<input type="text" onChange={(e)=>setEmail(e.target.value)} />
-				{/* {errors.email && <span>{errors.email.message}</span>} */}
+				{errors.email && <span>{errors.email.message}</span>}
 				<label>Password:</label>
 				<input type="password" onChange={(e)=>setPassword(e.target.value)} />
-				{/* {errors.password && <span>{errors.password.message}</span>} */}
+				{errors.password && <span>{errors.password.message}</span>}
 				<label>Confirm Password:</label>
 				<input type="password" onChange={(e)=>setConfirmP(e.target.value)} />
 				{errors.confirmP && <span>{errors.confirmP.message}</span>}
