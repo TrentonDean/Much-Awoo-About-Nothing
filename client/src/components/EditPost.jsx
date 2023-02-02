@@ -66,32 +66,33 @@ const EditPost = (props) => {
 
     return (
         <div>
-        <LeftPanel currentUser={currentUser} setCurrentUser={setCurrentUser} />
-        <div class="formContainer">
-            
-            <div id="composeForm">
-                <h2>Edit Post</h2>
-                <form onSubmit={submitHandler} >
+            <div>
+            <LeftPanel currentUser={currentUser} setCurrentUser={setCurrentUser} />
+                <div id="composeForm">
                     <div>
-                        <label>Post Title: </label>
-                        <input type="text" defaultValue={title} value={title} id="title" onChange={(e) => setTitle(e.target.value)} />
+                        <h2>Edit Post!</h2>
+                        <form onSubmit={submitHandler} >
+                            <div>
+                                <label>Post Title: </label>
+                                <input type="text" defaultValue={title} value={title} id="title" onChange={(e) => setTitle(e.target.value)} />
+                            </div>
+                            <div>
+                                <label>Post Body: </label>
+                                <textarea defaultValue={body} id="body" onChange={(e) => setBody(e.target.value)} />
+                            </div>
+                            <div>
+                                <label>Tags: </label>
+                                <input type="text" defaultValue={tags} id="tags" onChange={(e) => setTags(e.target.value)}></input>
+                            </div>
+                            <div>
+                                <button>Update</button>
+                                <button onClick={()=>{deletePost(id)}}>Delete</button>
+                            </div>
+                        </form>
                     </div>
-                    <div>
-                        <label>Post Body: </label>
-                        <textarea defaultValue={body} id="body" onChange={(e) => setBody(e.target.value)} />
-                    </div>
-                    <div>
-                        <label>Tags: </label>
-                        <input type="text" defaultValue={tags} id="tags" onChange={(e) => setTags(e.target.value)}></input>
-                    </div>
-                    <div>
-                        <button>Update</button>
-                        <button onClick={()=>{deletePost(id)}}>Delete</button>
-                    </div>
-                </form>
+                </div>
             </div>
-        </div>
-        <RightPanel currentUser={currentUser} setCurrentUser={setCurrentUser} />
+            <RightPanel currentUser={currentUser} setCurrentUser={setCurrentUser} />
         </div>
     )
 }

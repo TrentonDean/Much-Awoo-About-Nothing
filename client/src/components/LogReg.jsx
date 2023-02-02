@@ -23,6 +23,12 @@ const LogReg = (props) => {
         },{withCredentials:true, credentials:"include"})
         .then((res)=>{
         	console.log("successfully logged in", res)
+            if(res.data.user.dogs===[]){
+                res.data.user.dogs =[{
+                    name: "The Cutest",
+                    bio: "Tell us your dog's story!"
+                  }]
+            }
         	setCurrentUser({
             _id:res.data.user._id,
             firstName:res.data.user.firstName,

@@ -36,9 +36,8 @@ const RightPanel = (props) => {
                 <Link to={`/post/${post._id}`}>{post.title}</Link>
             )
         })}
-        
     </div>
-  )
+    )
 }
 
 export default RightPanel

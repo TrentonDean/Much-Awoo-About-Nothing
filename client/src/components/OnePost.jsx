@@ -56,11 +56,14 @@ const OnePost = (props) => {
         <div>
             <LeftPanel currentUser={currentUser} setCurrentUser={setCurrentUser} />
             <div id="composeForm">
-                <p>{title}</p>
-                <p>{body}</p>
-                <p>{tags}</p>
-                <button onClick={()=>{editPost(id)}}>Edit</button>
-                <button onClick={()=>{deletePost(id)}}>Delete</button>
+                <div>
+                    <p>{title}</p>
+                    <p>{body}</p>
+                    <p>{tags}</p>
+                    <button onClick={()=>{editPost(id)}}>Edit</button>
+                    <button onClick={()=>{deletePost(id)}}>Delete</button>
+                </div>
+                
             </div>
             <RightPanel currentUser={currentUser} setCurrentUser={setCurrentUser} />
         </div>

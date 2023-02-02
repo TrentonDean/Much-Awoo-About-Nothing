@@ -41,7 +41,17 @@ const NavBar = (props) => {
             <div id="centerOfPaw"></div>
         </div>
         <p id="navBarTitle">Much Awoo About Nothing</p>
-        <button type='button' onClick={logoutUser} >Logawooooout</button>
+        <button type='button' onClick={logoutUser} id="bonebutton">
+          <div className="c1"></div>
+          <div className="c2"></div>
+          <div className="c3"></div>
+          <div className="c4"></div>
+          <div className='b1'>
+            <div className='b2'>
+              Logawooooout
+            </div>
+          </div>
+        </button>
     </div>
   )
 }
