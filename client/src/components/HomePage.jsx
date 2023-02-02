@@ -10,6 +10,21 @@ const HomePage = (props) => {
     const [bodyPosts, setBodyPosts] =useState([]);
 
 
+    useEffect(() => {
+        axios.get("http://localhost:8000/api/currentUser", {withCredentials:true})
+        .then(res=>{
+            console.log("home page",res.data)
+            setCurrentUser({
+                _id: res.data._id,
+                firstName: res.data.firstName,
+                lastName: res.data.lastName,
+                dogs: res.data.dogs
+        })
+        })
+        .catch(err=>{console.log("logged in user fetch error", err)
+    })
+    },[])
+
     useEffect(()=>{
         axios.get("http://localhost:8000/api/getAllPosts/", {withCredentials:true})
         .then(res=>{
