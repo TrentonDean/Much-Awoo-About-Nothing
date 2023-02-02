@@ -43,6 +43,7 @@ const ComposePost = (props) => {
             setTitle("")
             setTags("")
             setBody("")
+            navigate("/")
         })
         .catch(err=> {
             console.log("Error posting.", err)
@@ -55,32 +56,31 @@ const ComposePost = (props) => {
         <div >
             <div>
             <LeftPanel currentUser={currentUser} setCurrentUser={setCurrentUser} />
-            
-            
-            
                 <div id="composeForm">
-                <h2>Make a Post!</h2>
-                <form onSubmit={submitHandler} >
                     <div>
-                        <label>Post Title: </label>
-                        <input type="text" defaultValue={""} onChange={(e) => setTitle(e.target.value)} />
+                        <h2>Make a Post!</h2>
+                        <form onSubmit={submitHandler} >
+                            <div>
+                                <label>Post Title: </label>
+                                <input type="text" defaultValue={""} onChange={(e) => setTitle(e.target.value)} />
+                            </div>
+                            <div>
+                                <label>Post Body: </label>
+                                <textarea defaultValue={""} onChange={(e) => setBody(e.target.value)} />
+                            </div>
+                            <div>
+                                <label>Tags: </label>
+                                <input type="text" defaultValue={""} onChange={(e) => setTags(e.target.value)}></input>
+                            </div>
+                            <div>
+                                <button>Submit</button>
+                            </div>
+                        </form>
                     </div>
-                    <div>
-                        <label>Post Body: </label>
-                        <textarea defaultValue={""} onChange={(e) => setBody(e.target.value)} />
-                    </div>
-                    <div>
-                        <label>Tags: </label>
-                        <input type="text" defaultValue={""} onChange={(e) => setTags(e.target.value)}></input>
-                    </div>
-                    <div>
-                        <button>Submit</button>
-                    </div>
-                </form>
                 </div>
             </div>
             <RightPanel currentUser={currentUser} setCurrentUser={setCurrentUser} />
-            </div>
+        </div>
     )
 }
 

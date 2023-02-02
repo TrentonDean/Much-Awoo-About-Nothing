@@ -38,25 +38,25 @@ const HomePage = (props) => {
         )
     },[])
     
-  return (
-    <div>
-        <LeftPanel currentUser={currentUser} setCurrentUser={setCurrentUser} />
-        <div id="postContainer">
-            {bodyPosts.map((item,id)=>{
-                return(
-                    <div>
-                        <Link to={`/post/${item._id}`}>{item.title}</Link>
-                        <p>{item.body}</p>
-                        <p>{item.tags}</p>
-                        <Link to={`/post/edit/${item._id}`}>Edit</Link>
-                    </div>
-                )
-            })}
-            
+    return (
+        <div>
+            <LeftPanel currentUser={currentUser} setCurrentUser={setCurrentUser} />
+            <div id="postContainer">
+                {bodyPosts.map((item,id)=>{
+                    return(
+                        <div className="post">
+                            <Link to={`/post/${item._id}`}>{item.title}</Link>
+                            <p>{item.body}</p>
+                            <p>{item.tags}</p>
+                            <Link to={`/post/edit/${item._id}`}>Edit</Link>
+                        </div>
+                    )
+                })}
+                
+            </div>
+            <RightPanel currentUser={currentUser} setCurrentUser={setCurrentUser} />
         </div>
-        <RightPanel currentUser={currentUser} setCurrentUser={setCurrentUser} />
-    </div>
-  )
+    )
 }
 
 export default HomePage

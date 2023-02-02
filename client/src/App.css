@@ -4,7 +4,7 @@
 }
 
 body{
-  background-color: grey;
+  background-color: rgb(244,241,222);
 }
 
 .App {
@@ -52,7 +52,7 @@ body{
   align-items: top;
   height: 25vh;
   width: 100vw;
-  border: 1px red solid;
+  /* border: 1px red solid; */
   position:sticky;
   top: 0;
   left: 0
@@ -60,16 +60,19 @@ body{
 
 #navBarTitle{
   flex: 2;
-  font-size: 7vh;
+  font-size: 10vh;
   align-self: center;
-  margin-left: 5vw;
+  margin-left: -8vh;
+  margin-top: 3vh;
+  color: rgb(61, 64, 91);
+  font-family: 'Bangers', cursive;
 }
 
 #pawContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px red solid;
+  /* border: 1px red solid; */
   padding: 1vh 1vw 1vh 1vw;
   overflow: visible;
   min-height: 30vh;
@@ -77,14 +80,14 @@ body{
 }
 
 #navButtonsContainer {
-  border: 1px green solid;
+  /* border: 1px red solid; */
   display: flex;
 }
 
 #centerOfPaw {
-  background-color: blue;
+  background-color: rgb(129,178,154);
   border-radius: 100%;
-  border: 5vh solid blue;
+  border: 5vh solid rgb(129,178,154);
   width: 10vw;
   height: 30vh;
   width:30vh;
@@ -108,22 +111,22 @@ body{
 
 /* mouse over to see menu selections */
 .navBarButton {
-  background-color: blue;
-  color: blue;
+  background-color: rgb(129,178,154);
+  color: rgb(61,64,91);
   font-size: 1.5vh;
   text-align: center;
   height:10vh;
   width: auto;
   margin: 0vh 0.5vw;
   padding: 1vh 1vw 1vh 1vw;
-  border: blue;
+  border: rgb(129,178,154);
   border-radius: 50%;
   transition-duration: 0.4s;
 }
 
 .navBarButton:hover {
-  background-color: red;
-  color: rebeccapurple;
+  background-color: rgb(224, 122,95);
+  color: rgb(43,45,66);
   font-size: 1.5vh;
   width: fit-content;
 }
@@ -133,6 +136,67 @@ body{
   color: red;
   font-size: 1.5vh;
   width: fit-content;
+}
+
+/* logout button in shape of bone */
+#bonebutton {
+  margin: 10px;
+  margin-right: 50px;
+  position: relative;
+  width: 150px;
+  height: 60px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  align-self: end;
+  font-family: 'Hammersmith One', sans-serif;
+}
+
+.c1, .c2, .c3, .c4 {
+  background:#fff;
+  height: 30px;
+  width: 30px;
+  border: 2px solid #000;
+  border-radius: 55%;
+  position:absolute;
+}
+
+.c1{
+  left: 0;
+  top: 0;
+}
+.c2{
+  right: 0;
+  top: 0;
+}
+
+.c3{
+  left: 0;
+  bottom: 0;
+}
+.c4{
+  bottom: 0;
+  right: 0;
+}
+.b1 {
+  background:#fff;
+  height: 30px;
+  width: 120px;
+  position:absolute;  
+  left: 15px;
+  top: 15px;
+}
+.b2 {
+  position: absolute;
+  left: 15px;
+  top: 0;
+  width: 90px;
+  height: 30px;
+  line-height: 30px;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+  text-align: center;
+  color: rgb(61,64,91);
 }
 
 /* menu visible and beans change on mouseover */
@@ -187,17 +251,19 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  border: white 1px solid;
+  background-color: rgb(242, 204, 143);
   width: 10vw;
   height: 70vh;
   position: absolute;
   top: 27vh;
   left: 0vw;
   padding: 1vh 1vw 1vh 1vw;
+  margin-top: 3vh;
+  margin-left: 2vh;
 }
 
 .userInfoSide{
-  border: 1px lightcoral solid;
+  border: 1px red solid;
 }
 
 .userImage {
@@ -237,11 +303,10 @@ body{
 }
 
 #rightPanelContainer {
-  border: black 1px solid;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  border: white 1px solid;
+  background-color: rgb(244, 122, 95);
   width: 10vw;
   height: 70vh;
   position: absolute;
@@ -249,18 +314,24 @@ body{
   right: 0vw;
   padding: 1vh 1vw 1vh 1vw;
   overflow-y: scroll;
+  margin-top: 3vh;
+  margin-right: 2vh;
 }
 
 #postContainer {
-  border:1px solid blue;
+  border: 1px solid red;
+  color: rgb(61,64,91);
   margin: 0vw 1vh;
   padding: 1vh 1vw 1vh 1vw;
-  width: 73vw;
+  width: 68vw;
   height:70vh;
   position: absolute;
   top:27vh;
   left:12vw;
   overflow-y: scroll;
+  margin-top: 3vh;
+  margin-left: 5vh;
+  margin-right: 2vh;
 }
 
 /* .formContainer {
@@ -276,30 +347,45 @@ body{
 } */
 
 #composeForm {
+  color: rgb(61,64,91);
   margin: 0vw 1vh;
   padding: 1vh 1vw 1vh 1vw;
-  width: 73vw;
+  width: 68vw;
   height:70vh;
   position: absolute;
   top:27vh;
   left:12vw;
-  overflow-y: scroll;
+  margin-top: 3vh;
+  margin-left: 5vh;
+  margin-right: 2vh;
 }
 
+/* #composeForm .post {
+  padding: 1vh 1vw 1vh 1vw;
+  width: 50vw;
+  height:60vh;
+  position: relative;
+  color: white;
+  border: 1px solid rgb(61,64,91);
+  border-radius: 3%;
+  display: inline;
+} */
+
 #composeForm h2 {
-  border-bottom: 1px solid black;
   text-align: center;
   display: block;
   padding: 0;
   margin-bottom: 40px;
   font-size: x-large;
+  margin-top: 1vh;
+  font-family: 'Hammersmith One', sans-serif;
 }
 
 #composeForm div {
   display: block;
   text-align: center;
   padding: 0;
-  border: 1px solid black;
+  border: 1px solid rgb(61, 64, 91);
   margin-bottom: 35px;
   border-radius: 3px;
 }
@@ -313,48 +399,49 @@ body{
 #composeForm div > label {
   display: block;
   float: left;
-  margin-top: -25px;
-  background: grey;
+  margin-top: -28px;
   height: 20px;
-  color: black;
+  color: rgb(61, 64, 91);
   font-size: 18px;
   overflow: hidden;
+  font-family: 'Hammersmith One', sans-serif;
 }
 
 #composeForm input[type="text"] {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  width: 99.5%;
+  width: 99.8%;
   display: block;
-  height: 25px;
+  height: 30px;
   outline: none;
   border: none;
   line-height: 25px;
   padding: 0;
-  margin: 2px;
-  color: black;
+  margin: 0;
+  color: rgb(61, 64, 91);
 }
 
 #composeForm textarea {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  width: 99.5%;
+  width: 99.8%;
   display: block;
   height: 150px;
   padding: 0;
-  margin: 2px;
+  margin: 0;
   color: black;
 }
 
 #composeForm button {
-  background: lightblue;
+  background: rgb(61, 64, 91);
   border: none;
   padding: 10px 20px 10px 20px;
   border-radius: 3px;
-  border-color: 2px black solid;
-  color: black;
+  border-color: 2px rgb(61, 64, 91) solid;
+  color: rgb(244, 241, 222);
+  font-family: 'Hammersmith One', sans-serif;
 }
 
 .updateFormsContainer {
