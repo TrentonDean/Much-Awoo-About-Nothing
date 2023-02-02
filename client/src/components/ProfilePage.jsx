@@ -93,7 +93,7 @@ const updateDogHandler = (e) => {
   return (
     <div>
       <LeftPanel currentUser={currentUser} setCurrentUser={setCurrentUser} />
-      <div class="updateFormsContainer">
+      <div id="updateFormsContainer">
         <div>
           <img class="userImage" alt="the current user's face" src={userPic}></img>
           <form id="userForm" onSubmit={updateUserHandler}>

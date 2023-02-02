@@ -231,16 +231,6 @@ body{
 /* LogReg Page */
 
 #logRegComponent {
-  /* position:relative;
-  top: 25vh;
-  margin-left: 20vw;
-  border: 1px white solid;
-  height: fit-content;
-  width: auto;
-  max-width: 80vw;
-  display: flex;
-  justify-content: space-evenly; */
-  /* border: 1px solid red; */
   color: rgb(61,64,91);
   margin: 0vw 1vh;
   padding: 1vh 1vw 1vh 1vw;
@@ -344,19 +334,24 @@ body{
 }
 
 .userImage {
-  height: auto;
-  width: 8vw;
+  width: 7vw;
+  height: 15vh;
+  overflow: hidden;
+  border-radius: 50%;
   margin: 1vh 1vw 1vh 1vw;
+  position: relative;
 }
 
 .userNameSide {
   margin: 0vh 0vw 1vh 0vw;
-  font-style: bold;
+  font-family: 'Hammersmith One', sans-serif;
 }
 
 .userBioSide {
   margin: 0vh 0vw 1vh 0vw;
+  margin-bottom: 2vh;
   font-style: italic;
+  font-size: small;
 }
 
 .dogInfoSide{
@@ -364,19 +359,23 @@ body{
 }
 
 .dogImage {
-  height: auto;
-  width: 8vw;
+  width: 7vw;
+  height: 15vh;
+  overflow: hidden;
+  border-radius: 50%;
   margin: 1vh 1vw 1vh 1vw;
+  position: relative;
 }
 
 .dogNameSide {
   margin: 0vh 0vw 1vh 0vw;
-  font-style: bold;
+  font-family: 'Hammersmith One', sans-serif;
 }
 
 .dogBio {
   margin: 0vh 0vw 1vh 0vw;
   font-style: italic;
+  font-size: small;
 }
 
 #rightPanelContainer {
@@ -384,6 +383,7 @@ body{
   flex-direction: column;
   justify-content: space-evenly;
   background-color: rgb(244, 122, 95);
+  color: rgb(250, 249, 246);
   width: 10vw;
   height: 70vh;
   position: absolute;
@@ -527,35 +527,121 @@ body{
 }
 
 #composeForm button {
-  background: rgb(61, 64, 91);
+  background: rgb(244, 122, 95);
   border: none;
   padding: 10px 20px 10px 20px;
   border-radius: 3px;
-  border-color: 2px rgb(61, 64, 91) solid;
+  border-color: 2px rgb(244, 122, 95) solid;
   color: rgb(244, 241, 222);
   font-family: 'Hammersmith One', sans-serif;
   margin-left: 2vh;
   margin-right: 2vh;
 }
 
-.updateFormsContainer {
-  border: yellow 1px dotted;
-  display: flex;
-  justify-content: space-evenly;
+/* ProfilePage */
+
+#updateFormsContainer {
+  color: rgb(61,64,91);
+  margin: 0vw 1vh;
+  padding: 1vh 1vw 1vh 1vw;
+  width: 80vw;
+  height:70vh;
   position: absolute;
+  top:27vh;
   left:12vw;
-  width:80vw;
-  overflow-y: scroll;
+  margin-top: 3vh;
+  margin-left: 5vh;
+  margin-right: 2vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+#updateFormsContainer div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 2vh;
+  width: 75%;
+}
+
+#updateFormsContainer img {
+  display: inline-block;
+  position: relative;
+  width: 17vh;
+  height:20vh;
+  overflow: hidden;
+  border-radius: 50%;
 }
 
 #userForm{
   display: flex;
   flex-direction: column;
+  width: 65%;
+  margin-top: 4vh;
+}
+
+#userForm input[type="text"], input[type="email"], textarea {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 99.8%;
+  display: block;
+  height: 30px;
+  outline: none;
+  border: none;
+  line-height: 25px;
+  padding: 0;
+  margin: 0;
+  color: rgb(61, 64, 91);
+  border-radius: 1vh;
+}
+
+#userForm button {
+  background: rgb(244, 122, 95);
+  border: none;
+  border-radius: 1vh;
+  padding: 10px 20px 10px 20px;
+  border-radius: 3px;
+  border-color: 2px rgb(244, 122, 95) solid;
+  color: rgb(244, 241, 222);
+  font-family: 'Hammersmith One', sans-serif;
+  margin-top: 2vh;
 }
 
 #dogForm{
   display: flex;
   flex-direction: column;
+  margin-top: 4vh;
+}
+
+#dogForm input[type="text"] {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 99.8%;
+  display: block;
+  height: 30px;
+  outline: none;
+  border: none;
+  line-height: 25px;
+  padding: 0;
+  margin: 0;
+  color: rgb(61, 64, 91);
+  border-radius: 1vh;
+}
+
+#dogForm button {
+  background: rgb(244, 122, 95);
+  border: none;
+  border-radius: 1vh;
+  padding: 10px 20px 10px 20px;
+  border-radius: 3px;
+  border-color: 2px rgb(244, 122, 95) solid;
+  color: rgb(244, 241, 222);
+  font-family: 'Hammersmith One', sans-serif;
+  margin-top: 2vh;
 }
 
 /* One Post Page */
