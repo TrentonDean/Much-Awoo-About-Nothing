@@ -67,7 +67,7 @@ const LogReg = (props) => {
             lastName,
             email,
             password,
-            confirmP,
+            confirmP
         },{withCredentials:true, credentials:"include"})
         .then((res)=>{
             console.log("guess it worked",res)
