@@ -11,7 +11,7 @@ const LogReg = (props) => {
     const [password, setPassword]=useState("")
     const [confirmP, setConfirmP] =useState("")
 
-    const [errors, setErrors] =useState("")
+    const [errors, setErrors] =useState('')
     const navigate = useNavigate()
 
     const loginUserHandler = (e) => {
@@ -79,9 +79,9 @@ const LogReg = (props) => {
             console.log("guess it worked",res)
             autoLogin(email, password)
             navigate("/")
-        }).catch(err=>{
+        }).catch((err)=>{
             console.log("Error with user registration function.", err)
-            setErrors(err.res.data.errors)
+            setErrors(err.response.data.errors)
         })
     }
 

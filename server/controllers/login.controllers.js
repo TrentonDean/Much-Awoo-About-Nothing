@@ -9,7 +9,7 @@ const register = async (req, res) => {
     try {
         const checkEmail = await loginModel.findOne({ email: req.body.email })
         if (checkEmail) {
-            res.status(400).json({ errors: { email: { message: 'Email in use!' } } })
+            res.status(400).json({ errors: { email: {message: 'Email is already in use!'} } })
         } else {
             const data = new loginModel(req.body)
             const user = await data.save()

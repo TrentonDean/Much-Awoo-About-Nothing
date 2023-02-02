@@ -15,6 +15,8 @@ const EditPost = (props) => {
     const [errors, setErrors] = useState({})
     const [postNotFound, setPostNotFound] = useState('')
 
+    const [titleE, setTitleE] = useState('')
+
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -46,7 +48,7 @@ const EditPost = (props) => {
         axios.delete("http://localhost:8000/api/deletePost/"+id)
         .then(res=>{
             console.log("Post deleted!")
-            navigate('/')
+            navigate('/d')
         })
         .catch(err=>console.log("Error deleting post.", err))
     }
@@ -62,7 +64,11 @@ const EditPost = (props) => {
             console.log("Successful edit")
             navigate(`/post/${id}`)
         })
-        .catch(err=>console.log("Error updating post.", err))
+        .catch(err=>{
+            console.log("Error updating post.", err)
+            setTitleE(err.response.data.errors.title.message)
+            console.log(err.response.data.errors.title.message)
+        })
     }
 
     return (

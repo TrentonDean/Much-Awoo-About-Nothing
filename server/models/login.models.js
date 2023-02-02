@@ -23,6 +23,7 @@ const loginSchema = mongoose.Schema({
 
     password: {
         type: String,
+        required: [true, "Password is required"],
         minLength: [7, "Password must be more then 7 characters"]
     },
 
