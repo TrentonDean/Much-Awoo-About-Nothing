@@ -12,10 +12,8 @@ const EditPost = (props) => {
     const [body, setBody] = useState("")
     const [tags, setTags] = useState("")
 
-    const [errors, setErrors] = useState({})
+    const [errors, setErrors] = useState("")
     const [postNotFound, setPostNotFound] = useState('')
-
-    const [titleE, setTitleE] = useState('')
 
     const navigate = useNavigate();
 
@@ -66,8 +64,7 @@ const EditPost = (props) => {
         })
         .catch(err=>{
             console.log("Error updating post.", err)
-            setTitleE(err.response.data.errors.title.message)
-            console.log(err.response.data.errors.title.message)
+            setErrors("Error Updating Post")
         })
     }
 
@@ -96,6 +93,7 @@ const EditPost = (props) => {
                                 <button onClick={()=>{deletePost(id)}}>Delete</button>
                             </div>
                         </form>
+                            {errors && <span>{errors}</span>}
                     </div>
                 </div>
             </div>

@@ -21,6 +21,7 @@ const ProfilePage = (props) => {
   const [dogBio, setDogBio] =useState("")
   const [tricks, setTricks] =useState("")
   const [owner, setOwner] =useState("")
+  const [upMessage, setUpM] = useState("")
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -74,8 +75,14 @@ const updateDogHandler = (e) => {
     tricks,
     owner:currentUser._id
     }, {withCredentials:true})
-    .then(res=>console.log("successful pup add!"))
-    .catch(err=>console.log("Error adding pup.", err))
+    .then(res=>{
+      console.log("successful pup add!")
+      setUpM("Successful Pup add!")
+    })
+    .catch(err=>{
+      console.log("Error adding pup.", err)
+      setUpM("Please fill out pup form")
+    })
   }else{
     axios.put("http://localhost:8000/api/updateDog/"+dogId,{
     name: dogName,
@@ -84,8 +91,15 @@ const updateDogHandler = (e) => {
     tricks,
     owner: currentUser._id
   }, {withCredentials:true})
-  .then(res=>console.log("successful pupdate!"))
-  .catch(err=>console.log("Error pupdating.", err))
+  .then(res=>{
+    console.log("successful pupdate!")
+    setUpM("Successful Pupdate!")
+    console.log(upMessage)
+  })
+  .catch(err=>{
+    console.log("Error pupdating.", err)
+    setUpM("Error Pupdating")
+  })
   }
   
 }
@@ -121,6 +135,7 @@ const updateDogHandler = (e) => {
           <textarea defaultValue={dogBio} onChange={(e)=>setDogBio(e.target.value)}></textarea>
           <button>Pupdate!</button>
         </form>
+        {upMessage && <span>{upMessage}</span>}
         </div>
       </div>
       

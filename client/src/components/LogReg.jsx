@@ -11,7 +11,8 @@ const LogReg = (props) => {
     const [password, setPassword]=useState("")
     const [confirmP, setConfirmP] =useState("")
 
-    const [errors, setErrors] =useState('')
+    const [loginErrors, setLErrors] =useState('')
+    const [registerErrors, setRErrors] =useState('')
     const navigate = useNavigate()
 
     const loginUserHandler = (e) => {
@@ -40,7 +41,7 @@ const LogReg = (props) => {
             navigate("/")
         }).catch(err=>{
         	console.log("Login error.", err)
-        	setErrors(err.response.data.errors)
+        	setLErrors(err.response.data.errors)
         })}
 
     //to automatically log new users in on registration
@@ -81,7 +82,7 @@ const LogReg = (props) => {
             navigate("/")
         }).catch((err)=>{
             console.log("Error with user registration function.", err)
-            setErrors(err.response.data.errors)
+            setRErrors("Registration Error!")
         })
     }
 
@@ -97,7 +98,7 @@ const LogReg = (props) => {
 				<input type="password" onChange={(e)=>setPassword(e.target.value)} />
 				<button class="border border-neon-yellow">Login</button>
         	</form>
-        	{errors && <span>{errors}</span>}
+        	{loginErrors && <span>{loginErrors}</span>}
         </div>
         {/* //registration form */}
         <div >
@@ -105,21 +106,22 @@ const LogReg = (props) => {
                 <h3>Register</h3>
 				<label>First name:</label>
 				<input type="text" onChange={(e)=>setFirstName(e.target.value)} />
-				{errors.firstName && <span>{errors.firstName.message}</span>}
+				{/* {errors.firstName && <span>{errors.firstName.message}</span>} */}
 				<label>Last name:</label>
 				<input type="text" onChange={(e)=>setLastName(e.target.value)} />
-				{errors.lastName && <span>{errors.lastName.message}</span>}
+				{/* {errors.lastName && <span>{errors.lastName.message}</span>} */}
 				<label>Email:</label>
 				<input type="text" onChange={(e)=>setEmail(e.target.value)} />
-				{errors.email && <span>{errors.email.message}</span>}
+				{/* {errors.email && <span>{errors.email.message}</span>} */}
 				<label>Password:</label>
 				<input type="password" onChange={(e)=>setPassword(e.target.value)} />
-				{errors.password && <span>{errors.password.message}</span>}
+				{/* {errors.password && <span>{errors.password.message}</span>} */}
 				<label>Confirm Password:</label>
 				<input type="password" onChange={(e)=>setConfirmP(e.target.value)} />
-				{errors.confirmP && <span>{errors.confirmP.message}</span>}
+				{/* {errors.confirmP && <span>{errors.confirmP.message}</span>} */}
 				<button class="border border-neon-yellow">Sign up!</button>
 			</form>
+                {registerErrors && <span>{registerErrors}</span>}
         </div>
 
     </div>

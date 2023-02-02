@@ -47,7 +47,7 @@ const HomePage = (props) => {
                         <div className="post">
                             <Link to={`/post/${item._id}`} className="linkFont">{item.title}</Link>
                             <p>{item.body}</p>
-                            <p>{item.tags}</p>
+                            <p>Tags: {item.tags}</p>
                             <Link to={`/post/edit/${item._id}`}>Edit</Link>
                         </div>
                     )

@@ -60,7 +60,7 @@ const OnePost = (props) => {
                 <div class="single">
                     <h2>{title}</h2>
                     <p>{body}</p>
-                    <p>{tags}</p>
+                    <p>Tags: {tags}</p>
 
                     {/* Testing Style
                     <h2>Title</h2>
