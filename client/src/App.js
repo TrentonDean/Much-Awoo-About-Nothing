@@ -24,8 +24,10 @@ function App() {
           <Route path="/login_registration" element={<LogReg currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
           <Route path="/compose" element={<ComposePost currentUser={currentUser} setCurrentUser={setCurrentUser} />}/>
           <Route path="/" element={<HomePage currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
+          {/* <Route path="/post/test" element={<OnePost currentUser={currentUser} setCurrentUser={setCurrentUser} />}/> */}
           <Route path="/post/:id" element={<OnePost currentUser={currentUser} setCurrentUser={setCurrentUser} />}/>
           <Route path="/profile/:id" element={<ProfilePage currentUser={currentUser} setCurrentUser={setCurrentUser} />}/>
+          {/* <Route path="/post/edit/test" element={<EditPost currentUser={currentUser} setCurrentUser={setCurrentUser} />}/> */}
           <Route path="/post/edit/:id" element={<EditPost currentUser={currentUser} setCurrentUser={setCurrentUser} />}/>
           {/* these can be removed before we merge to main */}
           {/* <Route path="/test/LeftPanel" element={<LeftPanel />} />

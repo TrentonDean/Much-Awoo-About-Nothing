@@ -55,13 +55,21 @@ const OnePost = (props) => {
     return (
         <div>
             <LeftPanel currentUser={currentUser} setCurrentUser={setCurrentUser} />
-            <div id="composeForm">
-                <div>
-                    <p>{title}</p>
+            <div id="onePost">
+                <div class="single">
+                    <h2>{title}</h2>
                     <p>{body}</p>
                     <p>{tags}</p>
-                    <button onClick={()=>{editPost(id)}}>Edit</button>
-                    <button onClick={()=>{deletePost(id)}}>Delete</button>
+
+                    {/* Testing Style
+                    <h2>Title</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim nec dui nunc mattis enim ut tellus. Magna etiam tempor orci eu. Diam volutpat commodo sed egestas egestas. Dictum non consectetur a erat nam. Id donec ultrices tincidunt arcu non sodales neque sodales ut. Ut tellus elementum sagittis vitae et leo. Vulputate mi sit amet mauris commodo quis imperdiet. Morbi tempus iaculis urna id volutpat lacus laoreet non. Bibendum enim facilisis gravida neque convallis a cras semper.</p>
+                    <p>tags</p> */}
+
+                    <div>
+                        <button onClick={()=>{editPost(id)}}>Edit</button>
+                        <button onClick={()=>{deletePost(id)}}>Delete</button>
+                    </div>
                 </div>
                 
             </div>

@@ -153,7 +153,7 @@ body{
 }
 
 .c1, .c2, .c3, .c4 {
-  background:#fff;
+  background:rgb(250, 249, 246);
   height: 30px;
   width: 30px;
   border: 2px solid #000;
@@ -179,7 +179,7 @@ body{
   right: 0;
 }
 .b1 {
-  background:#fff;
+  background: rgb(250, 249, 246);
   height: 30px;
   width: 120px;
   position:absolute;  
@@ -229,9 +229,10 @@ body{
   width: fit-content;
 } */
 
+/* LogReg Page */
 
 #logRegComponent {
-  position:relative;
+  /* position:relative;
   top: 25vh;
   margin-left: 20vw;
   border: 1px white solid;
@@ -239,12 +240,89 @@ body{
   width: auto;
   max-width: 80vw;
   display: flex;
+  justify-content: space-evenly; */
+  /* border: 1px solid red; */
+  color: rgb(61,64,91);
+  margin: 0vw 1vh;
+  padding: 1vh 1vw 1vh 1vw;
+  width: 68vw;
+  height:70vh;
+  position: absolute;
+  top:27vh;
+  left:12vw;
+  margin-top: 3vh;
+  margin-left: 5vh;
+  margin-right: 2vh;
+  display: flex;
   justify-content: space-evenly;
 }
 
 .logRegForm {
   display: flex;
   flex-direction: column;
+  /* border: red 1px solid; */
+  padding: 2vh;
+  width: 110%;
+  height: 55vh;
+  border-radius: 2vh;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgb(224, 122,95);
+  color: rgb(244,241,222);
+}
+
+.logRegForm h3 {
+  text-align: center;
+  display: block;
+  padding: 0;
+  margin-bottom: 3vh;
+  font-size: large;
+  color: rgb(250, 249, 246);
+  font-family: 'Hammersmith One', sans-serif;
+}
+
+.logRegForm input[type="text"] {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 99.8%;
+  display: block;
+  height: 30px;
+  outline: none;
+  border: none;
+  line-height: 25px;
+  padding: 0;
+  margin: 0;
+  color: rgb(61, 64, 91);
+  border-radius: 1vh;
+}
+
+.logRegForm input[type="password"] {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 99.8%;
+  display: block;
+  height: 30px;
+  outline: none;
+  border: none;
+  line-height: 25px;
+  padding: 0;
+  margin: 0;
+  color: rgb(61, 64, 91);
+  border-radius: 1vh;
+}
+
+.logRegForm button {
+  background: rgb(244, 241, 222);
+  border: none;
+  border-radius: 1vh;
+  padding: 10px 20px 10px 20px;
+  border-radius: 3px;
+  border-color: 2px rgb(244, 241, 222) solid;
+  color: rgb(61, 64, 91);
+  font-family: 'Hammersmith One', sans-serif;
+  margin-top: 2vh;
 }
 
 #leftPanelContainer {
@@ -319,7 +397,7 @@ body{
 }
 
 #postContainer {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   color: rgb(61,64,91);
   margin: 0vw 1vh;
   padding: 1vh 1vw 1vh 1vw;
@@ -332,6 +410,21 @@ body{
   margin-top: 3vh;
   margin-left: 5vh;
   margin-right: 2vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#postContainer .post {
+  border: rgb(61,64,91) 1px solid;
+  padding: 2vh;
+  height: 45%;
+  margin-bottom: 2vh;
+  background-color: rgb(250, 249, 246);
+  border-radius: 2vh;
+}
+
+#postContainer .post .linkFont {
+  font-family: 'Hammersmith One', sans-serif;
 }
 
 /* .formContainer {
@@ -442,6 +535,8 @@ body{
   border-color: 2px rgb(61, 64, 91) solid;
   color: rgb(244, 241, 222);
   font-family: 'Hammersmith One', sans-serif;
+  margin-left: 2vh;
+  margin-right: 2vh;
 }
 
 .updateFormsContainer {
@@ -464,4 +559,58 @@ body{
   flex-direction: column;
 }
 
+/* One Post Page */
+#onePost {
+  /* border: 1px solid red; */
+  color: rgb(61,64,91);
+  margin: 0vw 1vh;
+  padding: 1vh 1vw 1vh 1vw;
+  width: 68vw;
+  height:70vh;
+  position: absolute;
+  top:27vh;
+  left:12vw;
+  overflow-y: scroll;
+  margin-top: 3vh;
+  margin-left: 5vh;
+  margin-right: 2vh;
+  display: flex;
+  flex-direction: column;
+}
 
+#onePost .single {
+  /* border: red 1px solid; */
+  height: 65vh;
+  padding: 4vh;
+  background-color: rgb(250, 249, 246);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+#onePost .single h2 {
+  text-align: center;
+  display: block;
+  padding: 0;
+  font-size: x-large;
+  font-family: 'Hammersmith One', sans-serif;
+}
+
+#onePost .single div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#onePost .single button {
+  background: rgb(61, 64, 91);
+  border: none;
+  border-radius: 1vh;
+  padding: 10px 20px 10px 20px;
+  border-color: 2px rgb(61, 64, 91) solid;
+  color:rgb(244, 241, 222);
+  font-family: 'Hammersmith One', sans-serif;
+  margin-left: 2vh;
+  margin-right: 2vh;
+}
