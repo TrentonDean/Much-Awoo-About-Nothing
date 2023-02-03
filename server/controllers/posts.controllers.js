@@ -43,6 +43,7 @@ module.exports = {
     },
 
     deletePost: (req,res) => {
+        console.log(req.params.id)
         Post.deleteOne({_id:req.params.id})
         .then((result)=>{
             res.json(result)

@@ -1,16 +1,19 @@
 const mongoose = require('mongoose')
+const bcrypt = require('bcrypt')
 
 const loginSchema = mongoose.Schema({
 
     firstName: {
         type: String,
-        required: [true, "First Name is required"]
+        required: [true, "First Name is required"],
+        minLength:[2, "First name must be at least two (2) characters long."]
     },
 
     lastName: {
 
         type: String,
-        required: [true, "Last name is required"]
+        required: [true, "Last name is required"],
+        minLength:[2, "Last name must be at least two (2) characters long."]
     },
 
     email: {
@@ -20,16 +23,29 @@ const loginSchema = mongoose.Schema({
 
     password: {
         type: String,
+        required: [true, "Password is required"],
         minLength: [7, "Password must be more then 7 characters"]
+    },
+
+    dogs: [{                                                // User model accepting an array of dog objects
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Dog'
+    }],
+
+    profilePic: {
+        type: String
+    },
+    bio:{
+        type:String
     }
 
 }, {timeStamp: true})
 
 
-Schema.virtual('confirmP')
+loginSchema.virtual('confirmP')
     .get( () => this._confirmP )
     .set( e => this._confirmP = e );
-Schema.pre('validate', function(next){
+loginSchema.pre('validate', function(next){
     if (this.password !== this.confirmP) {
         this.invalidate('confirmP', 'Passwords must match!!')
     }
@@ -40,7 +56,7 @@ Schema.pre('validate', function(next){
 
 
 // SAVE ENCRYPTED PASSWORD
-Schema.pre('save', async function (next) {
+loginSchema.pre('save', async function (next) {
     try {
         const hashedP = await bcrypt.hash(this.password, 10)
         this.password = hashedP
@@ -50,4 +66,4 @@ Schema.pre('save', async function (next) {
     }
 })
 
-module.exports = mongoose.model('login', loginSchema)
+module.exports = mongoose.model('Login', loginSchema)

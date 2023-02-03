@@ -1,12 +1,12 @@
 const Dog = require('../models/Dog')
-const User = require('../models/User')
+const login = require("../models/login.models")
 const jwt = require('jsonwebtoken')
 const SECRET = process.env.SECRET_KEY
 
 module.exports = {
     createDog: (req,res) => {
         const user = jwt.verify(req.cookies.userToken, SECRET);
-        Dog.create({ ...req.body, owner: user})
+        Dog.create({ ...req.body, owner: user._id})
         .then((result)=>{
             res.json(result)
         }).catch((err)=>{
@@ -18,7 +18,6 @@ module.exports = {
     getDogsByUser: (req, res) => {
         const user = jwt.verify(req.cookies.userToken, SECRET);
         Dog.find({ owner: user._id })
-            .populate('owner', 'firstName lastName')
             .then((result) => {
                 res.json(result)
             })

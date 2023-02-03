@@ -1,22 +1,22 @@
 const loginModel = require('../models/login.models')
 
-const bcrypt = require('bcryypt')
+const bcrypt = require('bcrypt')
 
 const jwt = require('jsonwebtoken')
-const SECRET = 'Fooled you there is no secret 🙂'
+const SECRET = process.env.SECRET_KEY
 
 const register = async (req, res) => {
     try {
         const checkEmail = await loginModel.findOne({ email: req.body.email })
         if (checkEmail) {
-            res.status(400).json({ errors: { email: { message: 'Email in use!' } } })
+            res.status(400).json({ errors: { email: {message: 'Email is already in use!'} } })
         } else {
             const data = new loginModel(req.body)
             const user = await data.save()
-            const payload = { _id: user._id, email: user.email, first: user.firstName, last: user.lastName}
+            const payload = { _id: user._id, email: user.email, firstName: user.firstName, lastName: user.lastName}
             const token = jwt.sign(payload, SECRET)
-            res.cookie('userToken', token, { expires: new Date(Date.now() + 900000) })
-            .json({ successMessage: 'userToken: ', user: payload })
+            res.cookie('userToken', token, {httpOnly:true, expires: new Date(Date.now() + 900000) })
+            .json({ successMessage: 'userToken: ', user: user })
         }
     } catch (err) {
         res.status(400).json(err)
@@ -37,7 +37,7 @@ const login = async (req, res) => {
                 const payload = { _id: user._id, email: user.email, firstName: user.first, lastName:user.last }
                 const token = jwt.sign(payload, SECRET)
                 res.cookie('userToken', token, { expires: new Date(Date.now() + 900000) })
-                .json({ successMessage: 'userToken: ', user: payload })
+                .json({ successMessage: 'userToken: ', user: user })
             }
         }
     } catch (err) {

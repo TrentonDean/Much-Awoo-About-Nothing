@@ -21,8 +21,7 @@ const DogSchema = mongoose.Schema(
             type: String
         },
         owner: {                                                // Dog model accepting a user model object as an owner
-            type: [mongoose.Schema.Types.ObjectId],
-            ref: 'User'
+            type: String
         }
     }, {timestamps: true});
 
