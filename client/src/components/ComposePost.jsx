@@ -11,7 +11,7 @@ const ComposePost = (props) => {
 
     const {currentUser, setCurrentUser} = props;
 
-    const [errors, setErrors] = useState({})
+    const [errors, setErrors] = useState("")
 
     const navigate = useNavigate()
 
@@ -47,7 +47,7 @@ const ComposePost = (props) => {
         })
         .catch(err=> {
             console.log("Error posting.", err)
-            setErrors(err.response.data.errors)
+            setErrors("Post needs info!")
         })
         e.target.reset()
     }
@@ -76,6 +76,7 @@ const ComposePost = (props) => {
                                 <button>Submit</button>
                             </div>
                         </form>
+                        {errors && <span>{errors}</span>}
                     </div>
                 </div>
             </div>
